@@ -7,7 +7,7 @@ urlpatterns = [
     # path("admin/", admin.site.urls),
     path("", views.HomeView.as_view(), name="homepage"),
     path("admin/", views.AdminView.as_view(), name="adminpage"),
-    path("courses/", views.CoursesView.as_view(), name="coursespage"),
+    path("cursos/", views.CoursesView.as_view(), name="coursespage"),
 
     path("admin/adicionar-aluno/", views.AdminCreateStudent.as_view(),
          name="admincreatestudentpage"),
@@ -20,6 +20,9 @@ urlpatterns = [
 
     path("admin/listar-cursos/", views.AdminListCourses.as_view(),
          name="adminlistcoursespage"),
+     
+     # path("cursos/listar-cursos/", views.ListCourses.as_view(),
+     #      name="courseslistpage")
 
 
 

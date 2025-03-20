@@ -49,3 +49,17 @@ class AdminListCourses(list.ListView):
         context = super().get_context_data(**kwargs)
 
         return context
+
+
+# class ListCourses(list.ListView):
+#     template_name = "courses_read"
+#     model = models.Cursos 
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+
+#         return context
+
+
+
+

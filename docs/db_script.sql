@@ -17,6 +17,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 CREATE SCHEMA IF NOT EXISTS `db_crud_schema` DEFAULT CHARACTER SET utf8 ;
 USE `db_crud_schema` ;
 
+/*
 -- -----------------------------------------------------
 -- Table `db_crud_schema`.`administrador`
 -- -----------------------------------------------------
@@ -83,3 +84,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+*/
