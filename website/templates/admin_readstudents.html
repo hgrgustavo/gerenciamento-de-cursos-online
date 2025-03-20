@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
   <meta charset="UTF-8">
@@ -9,7 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <title>home</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <title>admins</title>
 </head>
 
 <body>
@@ -17,10 +19,10 @@
     <div class="container-fluid justify-content-center">
       <ul class="nav nav-underline">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+          <a class="nav-link" aria-current="page" href="{% url 'homepage' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'adminpage' %}">Área do administrador</a>
+          <a class="nav-link active" href="{% url 'adminpage' %}">Área do administrador</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'coursespage' %}">Acervo de cursos</a>
@@ -32,7 +34,30 @@
       </form> -->
     </div>
   </nav>
-
+  <table class="table table-light-borderless mx-1 my-5">
+    <thead>
+      <tr>
+        <th scope="col" class="m-1">ID</th>
+        <th scope="col" class="m-1">NOME</th>
+        <th scope="col" class="m-1">EMAIL</th>
+        <th scope="col" class="m-1">TELEFONE</th>
+        <th scope="col" class="m-1">AÇÕES</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for aluno in object_list %}
+      <tr>
+        <td>{{ aluno.id }}</td>
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.email }}</td>
+        <td>{{ aluno.telefone }}</td>
+        <td><a href="#"><i data-lucide="trash-2"></i></a></td>
+        <td><a href="#"><i data-lucide="pencil-line"></i> </a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <script>lucide.createIcons();</script>
 </body>
 
 </html>
