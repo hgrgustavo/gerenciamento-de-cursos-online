@@ -20,9 +20,12 @@ urlpatterns = [
 
     path("admin/listar-cursos/", views.AdminListCourses.as_view(),
          name="adminlistcoursespage"),
-     
-     # path("cursos/listar-cursos/", views.ListCourses.as_view(),
-     #      name="courseslistpage")
+
+    path("admin/listar-alunos/excluir/<int:pk>/",
+         views.AdminDeleteStudent.as_view(), name="admindeletestudentpage"),
+
+    path("admin/listar-cursos/excluir/<int:pk>/",
+         views.AdminDeleteCourses.as_view(), name="admindeletecoursepage"),
 
 
 

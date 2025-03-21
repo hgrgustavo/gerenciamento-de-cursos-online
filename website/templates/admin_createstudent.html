@@ -34,7 +34,8 @@
       </form> -->
     </div>
   </nav>
-  <form class="row container-fluid justify-content-center">
+  <form class="row container-fluid justify-content-center" method="POST">
+    {% csrf_token %}
     <div class="col-md-6 mt-3">
       <label for="inputEmail" class="form-label mx-2">Email</label>
       {{ form.email }}

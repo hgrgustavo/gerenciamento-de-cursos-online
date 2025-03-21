@@ -11,22 +11,17 @@ class Usuario(models.Model):
     nome = models.CharField(max_length=255)
     email = models.CharField(unique=True, max_length=255, default="")
     telefone = models.CharField(unique=True, max_length=18, default="")
-    _senha = models.CharField(max_length=255, default="", editable="false")
+    senha = models.CharField(max_length=255, default="", editable="false")
     tipo_usuario = models.CharField(
         choices=TIPOS_USUARIO, max_length=20, default="")
 
     def save(self, *args, **kwargs):
         if self.senha:
-            self.senha = hashers.make_password(
-                self.senha, salt=None, hasher=hashers.ScryptPasswordHasher)
+            self.senha = hashers.make_password(self.senha)
         super().save(*args, **kwargs)
 
     def check_senha(self, senha):
         return hashers.check_password(senha, self.senha)
-
-    @property
-    def senha(self):
-        return AttributeError("Não pode ser acessado diretamente.")
 
     class Meta:
         abstract = True

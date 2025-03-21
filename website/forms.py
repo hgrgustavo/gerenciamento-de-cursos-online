@@ -6,7 +6,6 @@ class AdminCreateStudentForm(forms.ModelForm):
     class Meta:
         model = models.Aluno
         exclude = [
-            "senha",
             "tipo_usuario",
         ]
         fields = [
