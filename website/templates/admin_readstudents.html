@@ -38,7 +38,7 @@
       </form> -->
     </div>
   </nav>
-  <table class="table table-light-borderless mx-1 my-5">
+  <table class="table table-light-borderless my-5">
     <thead>
         <tr >
         <th scope="col" class="m-1">ID</th>
@@ -57,7 +57,7 @@
         <td>{{ a.telefone }}</td>
         <td>
             <a href="#" onclick="ajax.deleteItem({{ a.id }}, 'student')"><i data-lucide="trash-2"></i></a>
-            <a href="#"><i data-lucide="pencil-line"></i></a>
+            <a href="{% url 'adminupdatestudentpage' a.id %}"><i data-lucide="pencil-line"></i></a>
         </td>
 
       </tr>

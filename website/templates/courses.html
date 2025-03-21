@@ -9,6 +9,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <title>cursos</title>
 </head>
 
@@ -26,13 +28,64 @@
           <a class="nav-link active" href="{% url 'coursespage' %}">Acervo de cursos</a>
         </li>
       </ul>
-      <!--<form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
     </div>
   </nav>
-  
+
+  <div class="container my-5">
+    {% for c in courses %}
+    <div class="row">
+      <div class="col-md-7">
+        <a href="#">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="https://via.placeholder.com/700x300" alt="">
+        </a>
+      </div>
+      <div class="col-md-5">
+        <h3>{{ c.nome }}</h3>
+        <p>{{ c.descricao }}</p>
+        <div class="d-flex mb-3">
+          <a class="btn btn-primary" href="{% url 'createenrollmentpage' c.id %}">Ingressar</a>
+          <span class="mx-3 d-flex align-self-baseline"><i data-lucide="timer"></i>
+            <h6 class="m-1">{{ c.carga_horaria }} horas</h6>
+          </span>
+          <span class="d-flex align-self-baseline"><i data-lucide="user-round"></i>
+            <h6 class="m-1">{{ c.instrutor }}</h6>
+          </span>
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      <!-- pagination -->
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">anterior</span>
+          </a>
+        </li>
+        {% endif %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page=2">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page=3">3</a>
+        </li>
+        {% if page_obj.has_next %}
+        <li class="page-item">
+
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+            <span class="sr-only">próximo</span>
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>

@@ -27,6 +27,15 @@ urlpatterns = [
     path("admin/listar-cursos/excluir/<int:pk>/",
          views.AdminDeleteCourses.as_view(), name="admindeletecoursepage"),
 
+    path("cursos/ingressar/<int:pk>/",
+         views.CreateEnrollment.as_view(), name="createenrollmentpage"),
+
+    path("admin/listar-alunos/alterar/<int:pk>/",
+         views.AdminUpdateStudent.as_view(), name="adminupdatestudentpage"),
+
+    path("admin/listar-cursos/alterar/<int:pk>/",
+         views.AdminUpdateCourse.as_view(), name="adminupdatecoursepage"),
+
 
 
 

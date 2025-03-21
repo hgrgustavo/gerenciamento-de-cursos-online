@@ -34,6 +34,6 @@ class Ajax {
   }
 }
 
-// Exemplo de uso:
+// use example
 const ajax = new Ajax("excluir");
 
